@@ -52,7 +52,7 @@ def main(file_path_pdf, file_path_md, page_number):
     # --- 1. PyMuPDF Output (Raw Text) ---
     try:
         # Ensure the PDF path is correct for your environment
-        doc = fitz.open("/Users/chhavishekhawat/Documents/google_10K.pdf") # Use the passed file_path_pdf
+        doc = fitz.open("google_10K.pdf") # Use the passed file_path_pdf
         page = doc.load_page(page_number - 1)
         pymupdf_output = page.get_text()
         print("=" * 50)
@@ -70,7 +70,7 @@ def main(file_path_pdf, file_path_md, page_number):
     table_markdown_string = ""
     try:
         # Ensure the Markdown file path is correct for your environment
-        with open("/Users/chhavishekhawat/Documents/goog-10-k-2024-docling.md", "r", encoding="utf-8") as md_file: # Use the passed file_path_md
+        with open("goog-10-k-2024-docling.md", "r", encoding="utf-8") as md_file: # Use the passed file_path_md
             docling_markdown = md_file.read()
 
         # Regex to find the table within the larger section.
@@ -124,7 +124,7 @@ def main(file_path_pdf, file_path_md, page_number):
 
 if __name__ == "__main__":
     # IMPORTANT: Update these paths to your actual file locations
-    file_to_analyze_pdf = "/Users/chhavishekhawat/Documents/google_10K.pdf" # Original path from your script
-    file_to_analyze_md = "/Users/chhavishekhawat/Documents/goog-10-k-2024-docling.md" # Original path from your script
+    file_to_analyze_pdf = "google_10K.pdf" # Original path from your script
+    file_to_analyze_md = "goog-10-k-2024-docling.md" # Original path from your script
     page_with_table = 28 # Refer to the PDF's page number
     main(file_to_analyze_pdf, file_to_analyze_md, page_with_table)
